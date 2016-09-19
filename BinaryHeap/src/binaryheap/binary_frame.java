@@ -10,7 +10,6 @@ public class binary_frame extends javax.swing.JFrame {
     BinaryHeap heap_logic = new BinaryHeap();
     static ArrayList<Integer> heap_array = new ArrayList();
     static int [] heap_display = new int[15];
-    private static int count = 0;
     public int insert;
 
     /*
@@ -339,7 +338,7 @@ public class binary_frame extends javax.swing.JFrame {
         jButton4.setEnabled(true);
         jButton5.setEnabled(true);
         jButton7.setEnabled(true);
-        count = 0;
+
 
         
         setButtons();
