@@ -9,7 +9,7 @@ public class binary_frame extends javax.swing.JFrame {
 
     BinaryHeap heap_logic = new BinaryHeap();
     static ArrayList<Integer> heap_array = new ArrayList();
-    static int [] heap_display = new int[15];
+    static int[] heap_display = new int[15];
     public int insert;
 
     /*
@@ -23,10 +23,10 @@ public class binary_frame extends javax.swing.JFrame {
         jButton3.setEnabled(false);
         jButton4.setEnabled(false);
         jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
         jButton7.setEnabled(false);
-        jButton24.setEnabled(false);
     }
-    
+
     /* 
      * setButtons refreshes text values of buttons
      */
@@ -52,6 +52,18 @@ public class binary_frame extends javax.swing.JFrame {
         jLabel17.setText(" " + heap_display[12]);
         jLabel18.setText(" " + heap_display[13]);
         jLabel19.setText(" " + heap_display[14]);
+    
+        if (heap_array.size() < 15) {
+            jButton5.setEnabled(true);
+        } else {
+            jButton5.setEnabled(false);
+        }
+
+        if (heap_array.size() > 0) {
+            jButton6.setEnabled(true);
+        } else {
+            jButton6.setEnabled(false);
+        }
     }
 
     /**
@@ -71,7 +83,7 @@ public class binary_frame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jPanel3 = new javax.swing.JPanel();
@@ -95,7 +107,7 @@ public class binary_frame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton24 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
 
@@ -112,38 +124,38 @@ public class binary_frame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Insert Element");
+        jButton2.setText("Get Depth");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Get Depth");
+        jButton3.setText("Get Maximum");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Get Maximum");
+        jButton4.setText("Get Minimum");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Get Minimum");
+        jButton5.setText("Insert Element");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Delete Element");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setText("Delete Element");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -158,18 +170,19 @@ public class binary_frame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(45, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 35, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 35, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,15 +193,15 @@ public class binary_frame extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7)
+                .addComponent(jButton6)
                 .addGap(37, 37, 37))
         );
 
@@ -269,13 +282,14 @@ public class binary_frame extends javax.swing.JFrame {
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 452, -1, -1));
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 449, 57, -1));
 
-        jButton24.setText("Insert");
-        jButton24.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setText("Confirm");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton24ActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 475, 69, -1));
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 475, -1, -1));
+        jButton7.getAccessibleContext().setAccessibleName("");
 
         jTextPane2.setBackground(new java.awt.Color(204, 204, 204));
         jTextPane2.setText("Notice the placement of each element in the array. If you work down the tree level by level each element in the array corresponds to each node on each level from left to right ");
@@ -291,7 +305,7 @@ public class binary_frame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -323,7 +337,8 @@ public class binary_frame extends javax.swing.JFrame {
         /*generate heap button. 
          generate our heap with the set values indicated in the heap_array. 
          */
-        jTextPane1.setText("Description: \nGenerates heap \n"
+        jTextPane1.setText(
+                "Description: \nGenerates heap \n"
                 + "with these set values. \nwhenver you need to reset the \n"
                 + "heap,these are the default values.\n"
                 + "For teaching puposes the \n max size of this heap is 15.");
@@ -336,118 +351,105 @@ public class binary_frame extends javax.swing.JFrame {
         jButton2.setEnabled(true);
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
-        jButton5.setEnabled(true);
-        jButton7.setEnabled(true);
 
+        if (heap_array.size() > 0) {
+            jButton6.setEnabled(true);
+        }
 
-        
+        if (heap_array.size() < 15) {
+            jButton5.setEnabled(true);
+        }
+
         setButtons();
         jLabel3.setText("   " + heap_array.toString());
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /*
-         insert button: 
-         Once pressed display dialog box to ask what number they want to enter. After they enter it, show the correct 
-         button, then display that number in the button. Then use logic from array to redesign the numbers in buttons. 
-         were going to need a reset array method to reset the array and then update each button. 
-         Keep track of number of insert clicks...if 1: show 19...if 2: show 20 etc. 
-         Also going to need a swap method that swaps elements in the array and then displays them on buttons. 
-         */
-
-        //jButton20.show();
-        //count=heap_display.length-heap_array.size()-1;
-        jTextPane1.setText("Description: \nThe insert method adds the new value after the last element in your heap. Once the elemet is"
-                + " added to the heap you must check for the parent node to see if the inserted element is greater than the parent node. If"
-                + "it is you swap the nodes and then do that same check for the next parent until the inserted element is either the top node "
-                + "or it is less than it's parent. ");
-        //jButton24.setText("Insert");
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jTextPane1.setText(
+                "Directions:"
+                + "\nType the value of the element that you would like to add. Once the element is added to "
+                + "the heap, it compares its value to the parent index. If the inserted element has a greater "
+                + "value, it swaps the indices and continues to compare its parent until the inserted element "
+                + "is either the top index, or its parent has a greater value.");
+       
         jTextField1.setEnabled(true);
-        jButton24.setEnabled(true);
-
+        jButton7.setEnabled(true);
         insert = 0;
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         /*Get Depth Button 
          returns the depth level of the heap
          */
         jTextPane1.setText("Description: \nThis the get depth method returns the number of levels in the heap. In this heap the depth is " + heap_logic.get_depth(heap_array));
         jTextField1.setEnabled(false);
-        jButton24.setEnabled(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        jButton7.setEnabled(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //getMaximum Button. 
         jTextPane1.setText("Description: \nThe get maximum button returns the maximum value in the heap array. It is always the top Value. In this case the mximum is " + heap_logic.get_maximum(heap_array));
         jTextField1.setEnabled(false);
-        jButton24.setEnabled(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        jButton7.setEnabled(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jTextPane1.setText("Description: \nThe get minimum returns the minimum value in the heap array. It is always one of the values on the bottom levels. In this case the mximum is " + heap_logic.get_minimum(heap_array));
         jTextField1.setEnabled(false);
-        jButton24.setEnabled(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        jButton7.setEnabled(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jTextPane1.setText(
+                "Directions:"
+                + "\nType the index of the element you would like to delete (0 - 14). The deleted element swaps "
+                + "that element with the last element and removes it from the heap. The swapped element must check "
+                + "its two child indices to see if its greater than it's childrens values. If the swapped element's"
+                + "value is greater than its child indices, then it stays. If it isn't, the parent element 'trickles "
+                + "down': swaps places with whichever child has the larger value.");
+
+        jTextField1.setEnabled(true);
+        jButton7.setEnabled(true);
+        insert = 1;
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jTextPane1.setText("Description: \nThe delete element method takes in the index of the element you want to delete and swaps "
-                + "that element with the last node in the tree. It then deletes element that was selected which is now the node in the tree. From there the node must checks it's two"
-                + " children children nodes to see if its greater than it's childrens values. If the swapped node is greater than it's children nodes then it stays where it is."
-                + "if it isn't the parent nodes swaps places with whichever child has the larger value.");
-
-        //jButton24.setText("Delete");
-        jTextField1.setEnabled(true);
-        jButton24.setEnabled(true);
-
-        insert = 1;
-
-
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
 
         //if you are inserting a number:
         if (insert == 0) {
             if (heap_array.size() < 15) {
                 try {
                     heap_logic.insert_element(heap_array, Integer.parseInt(jTextField1.getText()));
+                    jTextPane1.setText(jTextField1.getText() + " has been inserted.");
                     setButtons();
-                    jTextPane1.setText(jTextField1.getText() + " Inserted");
-                    //count++;
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
+                    jTextPane1.setText("Error: Incorrect format. Please try again");
                     jTextField1.setText(null);
                 }
-
             } else {
-                jButton24.setEnabled(false);
+                jButton7.setEnabled(false);
             }
-        }
-        int x;
         //if you are deleting a number:
-        if (insert == 1) {
-
+        } else if (insert == 1) {
             if (heap_array.size() > 0) {
                 try {
-                    x = Integer.parseInt(jTextField1.getText());
+                    int x = Integer.parseInt(jTextField1.getText());
+                    jTextPane1.setText(heap_array.get(x) + " at index " + x + " has been deleted.");
                     heap_logic.delete_element(heap_array, x);
                     setButtons();
-                    jTextPane1.setText(heap_array.get(x) + " at index " + x + " has been deleted");
-
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
+                    jTextPane1.setText("Error: Incorrect format. Please try again");
                     jTextField1.setText(null);
                 }
-
             } else {
-                jTextField1.setText(null);
-                jButton24.setEnabled(true);
+                jButton7.setEnabled(false);
             }
         }
+        
         jLabel3.setText(heap_array.toString());
-    }//GEN-LAST:event_jButton24ActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,17 +482,9 @@ public class binary_frame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
                 new binary_frame().setVisible(true);
-
-                /*     for(int i =0; i<heap_array.size();i++)
-                 {
-                 System.out.print(heap_array.get(i));
-                 }
-                 */
             }
         });
-
     }
 
 
@@ -498,10 +492,10 @@ public class binary_frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

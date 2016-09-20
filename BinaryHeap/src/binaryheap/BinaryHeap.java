@@ -3,6 +3,7 @@
  * Caleb Jardeleza, and Thomas Zack.
  * We used https://goo.gl/Z7eKph to understand the binary heaps data
  * structure.
+ * @author Rose
  */
 package binaryheap;
 
@@ -36,7 +37,7 @@ public class BinaryHeap {
     }   
 
     /* insert_element inserts an element into a binary heap.
-     * the element begins at the bottom, then "bubbles" upwards.
+     * the element is inserted at the bottom of the heap, then "bubbles" upwards.
      * if it is larger than its parent, it swaps with the parent.
      */
     public ArrayList<Integer> insert_element(ArrayList<Integer> array, int new_element) {
@@ -50,11 +51,10 @@ public class BinaryHeap {
     }
 
     /* bubble_up takes a newly inserted element of an array at
-     * the specified position, and checks if it is larger than its 
-     * parent. if so, it switches place with his parent.
+     * the specified position, and recursively checks if it is larger than its 
+     * parent. if so, it switches place with its parent.
      */
     public ArrayList<Integer> bubble_up(ArrayList<Integer> array, int position) {
-        //if the position is an odd number:
         int parent = (position - (2 - (position % 2))) / 2;
         if (array.get(position) > array.get(parent)) {
             int bubbled_element = array.get(position);
@@ -116,11 +116,10 @@ public class BinaryHeap {
      * then "trickles" downward, swapping with the larger of the two children.
      */
     public ArrayList<Integer> delete_element(ArrayList<Integer> array, int position) {
-        int deleted_element = array.get(position);
         int replacement_element = array.get(array.size() - 1);
 
         /* "replaces" element. this really just changes value to last element. 
-         * since last element will be removed anyways we do not need to set the 
+         * since last element will be removed anyways we do not need to save the 
          * value of last element.
          */
         array.set(position, replacement_element);
@@ -129,12 +128,11 @@ public class BinaryHeap {
         if (position < array.size() - 1) {
             trickle_down(array, position);
         }
-        System.out.println(deleted_element + " has been removed.");
         return array;
     }
 
 
-    /* trickle_down recursively checks kids and compares to see which child is larger.
+    /* trickle_down recursively compares to see which child element is larger.
      */
     public ArrayList<Integer> trickle_down(ArrayList<Integer> array, int position) {
         int trickled_element = array.get(position);
